@@ -47,12 +47,8 @@
     </script>
 
     <!-- Don't use jQuery unless you need it. -->
-    <!--<script src="bower_components/jquery/jquery.js"></script>-->
+    <!-- <script src="bower_components/jquery/jquery.js"></script> -->
     <script src="bower_components/angular/angular.js"></script>
-
-        <!-- build:js scripts/plugins.js -->
-        <!-- Add your bootstrap plugins here. -->
-        <!-- endbuild -->
 
         <!-- build:js scripts/modules.js -->
         <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -61,6 +57,12 @@
         <script src="bower_components/angular-route/angular-route.js"></script>
         <!-- endbuild -->
 
+        <!-- build:js scripts/plugins.js -->
+        <!-- Add your bootstrap plugins here. -->
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <!-- endbuild -->
+        
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
