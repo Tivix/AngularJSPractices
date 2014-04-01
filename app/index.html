@@ -26,8 +26,12 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div ng-controller="MasterCtrl">
+      <div ng-include src="'views/fragments/header.html'"></div>
+      <!-- Add your site or application content here -->
+      <div class="container" ng-view=""></div>
+      <div ng-include src="'views/fragments/footer.html'"></div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -40,11 +44,12 @@
        ga('send', 'pageview');
     </script>
 
-    <script src="bower_components/jquery/jquery.js"></script>
+    <!-- Don't use jQuery unless you need it. -->
+    <!--<script src="bower_components/jquery/jquery.js"></script>-->
     <script src="bower_components/angular/angular.js"></script>
 
         <!-- build:js scripts/plugins.js -->
-        
+        <!-- Add your bootstrap plugins here. -->
         <!-- endbuild -->
 
         <!-- build:js scripts/modules.js -->
@@ -59,6 +64,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/controllers/master.js"></script>
         <!-- endbuild -->
 </body>
 </html>
