@@ -20,12 +20,16 @@ Reference
 
 To bootstrap a project with Yeoman, run `yo angular`
 
-To create a new route, run `yo angular:route`
+To create a new route, run `yo angular:route <route name>`
 
-To create a new controller, run `yo angular:controller`
+To create a new controller, run `yo angular:controller <controller name>`
 
-To create a new service, run `yo angular:service`
+To create a new service, run `yo angular:service <service name>`
 
-To create a new directive, run `yo angular:directive`
+To create a new directive, run `yo angular:directive <directive name>`
 
-To create a new filter, run `yo angular:filter`
+To create a new filter, run `yo angular:filter <filter name>`
+
+Search for Javascript libraries by running `bower search <package name>`
+
+Install a Javascript library and save it to the project by running `bower install <package name> --save`
