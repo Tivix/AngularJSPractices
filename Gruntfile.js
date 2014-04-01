@@ -42,6 +42,10 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
+      less: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['recess:app']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -264,19 +268,28 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      less: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/styles',
+        dest: '.tmp/styles/',
+        src: '{,*/}*.less'
       }
     },
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles'
+        'copy:styles',
+        'copy:less'
       ],
       test: [
-        'copy:styles'
+        'copy:styles',
+        'copy:less'
       ],
       dist: [
         'copy:styles',
+        'copy:less',
         'imagemin',
         'svgmin',
         'htmlmin'
@@ -315,6 +328,35 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+
+    recess: {
+      app: {
+        options: {
+          compile: true,
+          compress: false
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: 'index.less',
+          dest: '.tmp/styles/',
+          ext: '.css'
+        }]
+      },
+      dist: {
+        options: {
+          compile: true,
+          compress: true
+        },
+        files: [{
+          expand: true,
+          cwd: '.tmp/styles',
+          src: 'index.less',
+          dest: '.tmp/styles/',
+          ext: '.css'
+        }]
+      }
     }
   });
 
@@ -328,6 +370,7 @@ module.exports = function (grunt) {
       'clean:server',
       'concurrent:server',
       'autoprefixer',
+      'recess:app',
       'connect:livereload',
       'watch'
     ]);
@@ -351,6 +394,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
+    'recess:dist',
     'concat',
     'ngmin',
     'copy:dist',
@@ -366,4 +410,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-recess');
 };

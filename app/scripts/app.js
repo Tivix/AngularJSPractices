@@ -23,4 +23,13 @@ angular.module('angularJspracticesApp', [
       .otherwise({
         redirectTo: '/'
       });
+  })
+
+  // Cache templates.
+  .run(function($templateCache,$http){
+      $http.get('views/main.html', {cache:$templateCache});
+      $http.get('views/about.html', {cache:$templateCache});
+      $http.get('views/contact.html', {cache:$templateCache});
+      $http.get('views/fragments/header.html', {cache:$templateCache});
+      $http.get('views/fragments/footer.html', {cache:$templateCache});
   });
