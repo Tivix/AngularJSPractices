@@ -10,6 +10,10 @@ Go to your work directory by running `cd ~/work`
 
 Run `git clone git@github.com:Tivix/AngularJSPractices.git AngularJSPractices`
 
+Then run `npm install`
+
+And finally, run `bower install`
+
 Run Locally
 ===========
 
