@@ -15,7 +15,10 @@ angular.module('angularJspracticesApp', [
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+        controller: 'AboutCtrl',
+        resolve: {
+          names: AboutCtrl.loadData
+        }
       })
       .when('/contact', {
         templateUrl: 'views/contact.html',
