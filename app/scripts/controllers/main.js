@@ -2,9 +2,5 @@
 
 angular.module('angularJspracticesApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    // Nothing going on here, yet!
   });

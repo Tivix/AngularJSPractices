@@ -1,23 +1,51 @@
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><button class="btn btn-lg btn-success" ng-click="splendid()">Splendid!</button></p>
+  <h1>Contact Us</h1>
 </div>
 
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+  <p>The following is a sample form.  It demonstrates how to wire up a model
+    property to a form field and configure validation.  The following field has
+    the following validation rules:</p>
+    <ul>
+      <li>It is required</li>
+      <li>It must be 3 characters long</li>
+      <li>It must be less than 20 characters long</li>
+    </ul>
+  <!--
+  Forms are exposed to the scope based on their name.  This form is accessed
+  via $scope.contactus.  ng-submit will trigger sendMessage() whenever the form
+  is submitted.  And we will hide this form if it has been submitted with the
+  ng-hide directive.
+  -->
+  <form ng-hide="submitted" name="contactus" ng-submit="sendMessage()" novalidate>
+    <div class="form-group" ng-class="{'has-error':errors.name.length}">
+      <label class="control-label" for="id_name">Your name</label>
+      <input  type="text" 
+              class="form-control" 
+              name="name" 
+              id="id_name" 
+              required 
+              ng-minlength="3"
+              ng-maxlength="20"
+              ng-model="mymodel.name"
+              ng-blur="validate_field('name',contactus,errors)">
+      <!--
+      AngularJS provides some basic validation directives.  Several are used here.
+      required, ng-minlength, and ng-maxlength.  We display any validation errors
+      whenever the field loses focus.
+      -->
+    </div>
+    <!--
+    Here, we will dump any validation errors related to this field.
+    -->
+    <p ng-show="errors.name.length" ng-repeat="error in errors.name" class="alert alert-danger">{{error}}</p>
+    <!--
+    A normal submit button can be implemented here.
+    -->
+    <p><button ng-disabled="sending" class="btn btn-info" type="submit">Submit</button></p>
+  </form>
+  <!--
+  Show a thank you message when the form is submitted.
+  -->
+  <h4 ng-show="submitted">Thanks</h4>
 </div>

@@ -8,7 +8,7 @@
 // elements that aren't related to the route - like the header and footer
 // of the page.
 angular.module('angularJspracticesApp')
-  .controller('MasterCtrl', function ($scope, $location, $modal, $log) {
+  .controller('MasterCtrl', function ($scope, $location, $modal, $log, Validators) {
     // Let's setup a listener.  The event we want to listen for is 
     // $locationChangeStart.  This occurs when the user has changed routes
     // by clicking a link and activating a method that changes the route
@@ -18,7 +18,10 @@ angular.module('angularJspracticesApp')
       // This will be used in the header to mark the right link as active.
       $scope.where = $location.path();
     });
-    // Now we want to setup a method that invokes a modal window, and it
+    // Let's expose some validation methods
+    $scope.validate_field = function(name,form,errors){
+      Validators.validate_field(name,form,errors);
+    };    // Now we want to setup a method that invokes a modal window, and it
     // will be accessible to all child controllers.  Basically, every page
     // in the app can call this.
     $scope.splendid = function(){
