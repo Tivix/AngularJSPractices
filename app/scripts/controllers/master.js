@@ -28,10 +28,14 @@ angular.module('angularJspracticesApp')
       // We open the modal from the $modal service.  We provide a template
       // url to be used in the modal, and a controller to use.  We receive
       // an object that contains a promise that will be fulfilled when the 
-      // modal window is closed.
+      // modal window is closed.  In this example we also resolve the
+      // where variable so that the modal has access to this information.
 	    var splendid_modal = $modal.open({
         templateUrl: 'views/modals/splendid.html',
-        controller: 'SplendidModalCtrl'
+        controller: 'SplendidModalCtrl',
+        resolve: {
+          "where": function(){ return $scope.where; }
+        }
       });
       // Let's tell the controller what to do when the promise is fulfilled.
       // NOTE: ui.bootstrap modals store the promise in the result property.
@@ -45,14 +49,21 @@ angular.module('angularJspracticesApp')
     }
   });
 
-// ProcessingModalCtrl is used to control the modal that appears while app is processing
+// ProcessingModalCtrl is used to control the modal that appears while app is processing.
+// Notice that the variable where is being injected into this controller. It
+// was configured as part of the resolve property when setting up the modal.
+// You can make it accessible to the template by assigning it to the scope.
 angular.module('angularJspracticesApp')
-  .controller('SplendidModalCtrl', function ($scope, $modalInstance) {
+  .controller('SplendidModalCtrl', function ($scope, $modalInstance, where) {
+    // Handle OK button
     $scope.ok = function () {
         $modalInstance.close("OKAY");
     };
+    // Handle cancel button
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+    // Assign the resolved where property to the scope.
+    $scope.where = where;
   });
 
