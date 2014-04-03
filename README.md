@@ -1,10 +1,15 @@
 AngularJSPractices
 ==================
 
-A collection of examples and best practices for AngularJS projects
+A collection of examples and best practices for AngularJS projects.
+
+More introductory info can be found here:
+https://docs.google.com/a/tivix.com/document/d/1TbSmSOTqYwxzEMFbVp2XGRNPiMCcWOuf_EM8MjRXdQQ/edit?usp=sharing
 
 Installation
 ============
+
+Note: I am assuming that you already have node.js installed as well as grunt CLI, etc.
 
 Go to your work directory by running `cd ~/work`
 
