@@ -24,8 +24,6 @@ angular.module('angularJspracticesApp')
                 method = args.method || "GET",
                 params = args.params || {},
                 data = args.data || {};
-            // Set flag to indicate loading has begun
-            this.startLoading();
             // Fire the request
             $http.jsonp(url, {
                 method: method.toUpperCase(),

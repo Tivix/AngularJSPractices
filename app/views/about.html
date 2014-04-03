@@ -1,6 +1,56 @@
 <div class="row marketing">
-  <h4>About Us</h4>
-  <ul>
-    <li ng-repeat="name in names">{{name}}</li>
-  </ul>
+  <!-- 
+  So we're using this template for two different pages.  The about list, and about details.
+  We can use the ng-switch directive to activate only the relevant parts of the template.
+  Before you'll see a div with ng-switch and the on attribute.  The on attribute will
+  determine which variable decides what part of the template to activate.
+  -->
+  <div ng-switch on="who">
+    <!-- 
+    ng-switch-when represents the value that `on` must be for the embedded content to
+    become active.  In this case, we want to show the list portion when who is blank.
+    NOTE: ng-switch creates a new child scope level. This probably won't matter if you're 
+    just displaying content, because if a variable doesn't exist in the current scope then 
+    Angular will look for it in parent scopes.  Use Batarang to see this in action.
+    -->
+    <div ng-switch-when="">
+      <h4>About Us</h4>
+      <p>The following has been loaded from sample1.json in the /app/scripts/data directory.</p>
+      <p>It's an example of how to use the resolve property of the $routeProvider service to load
+        data before the route is changed.</p>
+      <ul>
+        <!--
+        Below, we use the ng-repeat directive to iterate through a list of names that was
+        resolved from the server.  The directive takes one argument which is effectively
+        `<name of individual item> in <list of items>`.  Then <name of individual item>
+        becomes available as a variable in the template for nested sections.
+        -->
+        <li ng-repeat="name in names">
+          <!--
+          NOTE: We are using ng-href here instead of href.  ng-href is used when you are
+          embedding template variables in the href.  AngularJS waits for all the required
+          variables to be available, and then it transforms ng-href into a working href
+          attribute.  This prevents the DOM from trying to render the link literally as
+          #/about/{{name}} rather than something like #/about/bert.  The same is done
+          with the src attribute using ng-src.
+          -->
+          <a ng-href="#/about/{{name}}">{{name}}</a>
+        </li>
+      </ul>
+      <p>There are a few things that happen differently in the controller (about.js) to make this
+        happen.  Check out the comments for more info.</p>
+    </div>
+    <!--
+    Here is our second option.  Using ng-switch-default, we can activate the following
+    portion of the template is there is no block of HTML with ng-switch-when that is set
+    to the current value of who.  In other words, for any non blank value of who, let's
+    show the details view.
+    -->
+    <div ng-switch-default>
+      <h4>About {{who}}</h4>
+      <img ng-src="{{photo}}" style="max-width:300px;max-height:300px;">
+      <p>So you're interested in {{who}}, are you?  Sorry, I've got nothin'.  <a href="#/about">Better go back
+        and try someone else.</a></p>
+    </div>
+  </div>
 </div>
