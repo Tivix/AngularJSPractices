@@ -2,5 +2,7 @@
 
 angular.module('angularJspracticesApp')
   .controller('MainCtrl', function ($scope) {
-    // Nothing going on here, yet!
+  	// Some example data for our page.
+    $scope.now = new Date();
+    $scope.price = 1001.92;
   });
