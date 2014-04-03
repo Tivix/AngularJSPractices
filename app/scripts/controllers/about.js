@@ -13,7 +13,9 @@ var AboutCtrl = angular.module('angularJspracticesApp')
   	// which exposes it to the template.
   	$scope.names = $route.current.locals.names;
   	// Now, let's check and see if the who variable is set as part
-  	// of the route.
+  	// of the route.  The $routeParams service will give us insight
+    // into this.  Check out app.js for more info on how to setup
+    // route parameters.
   	$scope.who = $routeParams['who'] || "";
     // If we're looking someone up, let's get a picture of them.
     // Google can help us out, right?

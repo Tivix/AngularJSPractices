@@ -16,10 +16,12 @@ angular.module('angularJspracticesApp', [
   .config(function ($routeProvider) {
     // Here we define all of the app routes we'll support.
     $routeProvider
+      // Home page
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      // About list view
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
@@ -27,14 +29,20 @@ angular.module('angularJspracticesApp', [
           names: AboutCtrl.loadData
         }
       })
+      // About details view.
+      // Adding a section to the url prefixed with a colon
+      // will indicate that this is a variable.  :who will
+      // be replaced with someone's name.
       .when('/about/:who', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      // Our contact view.
       .when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
       })
+      // Our catch-all view.
       .otherwise({
         redirectTo: '/'
       });
