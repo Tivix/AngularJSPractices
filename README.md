@@ -9,7 +9,8 @@ https://docs.google.com/a/tivix.com/document/d/1TbSmSOTqYwxzEMFbVp2XGRNPiMCcWOuf
 Installation
 ============
 
-Note: I am assuming that you already have node.js installed as well as grunt CLI, etc.
+Note: I am assuming that you already have node.js installed as well as grunt CLI, etc.  The following pivotal story includes links for setting up your environment to use Yeoman/Grunt/Bower:
+https://www.pivotaltracker.com/n/projects/624449/stories/68439322
 
 Go to your work directory by running `cd ~/work`
 
