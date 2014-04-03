@@ -42,9 +42,14 @@ angular.module('angularJspracticesApp', [
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
       })
+      // Our contact view.
+      .when('/404', {
+        templateUrl: '404.html',
+        controller: 'MainCtrl'
+      })
       // Our catch-all view.
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/404'
       });
   })
 
