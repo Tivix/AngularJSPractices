@@ -9,8 +9,11 @@ https://docs.google.com/a/tivix.com/document/d/1TbSmSOTqYwxzEMFbVp2XGRNPiMCcWOuf
 Installation
 ============
 
-Note: I am assuming that you already have node.js installed as well as grunt CLI, etc.  The following pivotal story includes links for setting up your environment to use Yeoman/Grunt/Bower:
-https://www.pivotaltracker.com/n/projects/624449/stories/68439322
+Note: I am assuming that you already have node.js installed as well as grunt CLI, etc.  Please install the following components before proceeding.
+ - Node: http://nodejs.org/
+ - Yeoman: http://yeoman.io/gettingstarted.html
+ - Grunt: http://gruntjs.com/getting-started
+ - Batarang: https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en
 
 Go to your work directory by running `cd ~/work`
 
